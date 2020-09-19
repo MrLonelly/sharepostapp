@@ -213,7 +213,7 @@ class Users extends Controller
         $_SESSION['user_name']   = $user->name;
         $_SESSION['user_email'] = $user->email;
 
-        redirect('pages/index');
+        redirect('posts');
     }
 
 
@@ -227,19 +227,6 @@ class Users extends Controller
         session_destroy();
 
         redirect('pages/index');
-    }
-
-    // Helper function to check if user is logged in
-    public function isLoggedIn()
-    {
-        if(isset($_SESSION['user_id']))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }
 

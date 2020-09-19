@@ -33,4 +33,17 @@ function flash($name = '', $message = '', $class = 'alert alert-success')
     }
 }
 
+// Helper function to check if user is logged in
+function isLoggedIn()
+{
+    if(isset($_SESSION['user_id']))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 ?>
