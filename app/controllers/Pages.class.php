@@ -4,13 +4,16 @@ class Pages extends Controller
 {
     public function __construct()
     {
-        $this->_postModel = $this->model('Post');
+
     }
 
     public function index()
     {
 
-        $posts = $this->_postModel->getPosts();
+        if(isLoggedIn())
+        {
+            redirect('posts');
+        }
 
         $data = [
             'title' => SITENAME,

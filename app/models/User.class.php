@@ -73,6 +73,17 @@ class User
             return false;
         }
     }
+
+    // Get user from db by id
+    public function getUserById($id)
+    {
+        $this->db->query('SELECT * FROM users WHERE id = :id');
+
+        $this->db->bind(':id', $id);
+        $results = $this->db->single();
+
+        return $results;
+    }
 }
 
 ?>
