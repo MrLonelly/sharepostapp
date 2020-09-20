@@ -83,11 +83,12 @@ class Post
         
 
         // Init query
-        $this->_db->query('UPDATE posts SET title = :title, body = :body, user_id = :user_id, created_at = now())');
+        $this->_db->query('UPDATE posts SET title = :title, body = :body, user_id = :user_id, created_at = now() WHERE id = :id');
 
         // Bind values
         $this->_db->bind(':title', $data['post_title']);
         $this->_db->bind(':user_id', $data['user_id']);
+        $this->_db->bind(':id', $data['id']);
         $this->_db->bind(':body', $data['post_body']);
 
         // Execute
